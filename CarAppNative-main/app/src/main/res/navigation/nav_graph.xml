@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_item_list">
+    <activity
+        android:id="@+id/view_camera"
+        android:name="com.example.carapp.utils.ViewCameraActivity"
+        tools:layout="@layout/view_camera" />
+    <activity
+        android:id="@+id/view_map"
+        android:name="com.example.carapp.utils.ViewMapActivity"
+        tools:layout="@layout/activity_my_location_on_map" />
+    <fragment
+        android:id="@+id/fragment_login"
+        android:name="com.example.carapp.auth.login.LoginFragment"
+        android:label="@string/login"
+        tools:layout="@layout/fragment_login" />
+
+
+    <fragment
+        android:id="@+id/fragment_item_list"
+        android:name="com.example.carapp.todo.items.CarListFragment"
+        android:label="@string/item_list_fragment_label"
+        tools:layout="@layout/fragment_item_list">
+
+        <action
+            android:id="@+id/action_ItemListFragment_to_ItemEditFragment"
+            app:destination="@id/fragment_item_edit" />
+        <action
+            android:id="@+id/action_ItemListFragment_to_ViewCamera"
+            app:destination="@id/view_camera" />
+        <action
+            android:id="@+id/action_ItemListFragment_to_ViewMap"
+            app:destination="@id/view_map" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_item_edit"
+        android:name="com.example.carapp.todo.item.CarEditFragment"
+        android:label="@string/item_edit_fragment_label"
+        tools:layout="@layout/fragment_item_edit">
+
+        <action
+            android:id="@+id/action_ItemEditFragment_to_ItemListFragment"
+            app:destination="@id/fragment_item_list" />
+    </fragment>
+</navigation>
